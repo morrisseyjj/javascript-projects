@@ -1,4 +1,18 @@
 //We want to COMPLETELY reverse an array by flipping the order of the entries AND flipping the order of characters in each element.
+// JM: Samples for Testing PART 1
+let str1 = "apple";
+let str2 = "LC101";
+let str3 = "Capitalized Letters";
+let str4 = "I love the smell of code in the morning.";
+// JM: Samples for Testing PART 2
+let num1 = 1234;
+//let str2 = "LC101"; already above (radar is a Palindrome)
+let num2 = 8675309;
+let str5 = "Radar";
+// JM: Samples for Testing PART 3
+let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
+let arrayTest2 = [123, 8897, 42, 1168, 8675309];
+let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
 // Part One: Reverse Characters
 
@@ -9,6 +23,16 @@
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
 
+// // PART 1 SOLUTION
+function reverseCharactersPart1(element) {
+        // //JM: takes string and splits it, reverse it then join it back together.
+        return element.split("").reverse().join("");
+}
+console.log("-------------------PART 1------------------");
+console.log(reverseCharactersPart1(str1));
+console.log(reverseCharactersPart1(str3));
+//------------------------------------------------------
+
 // Part Two: Reverse Digits
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
@@ -16,8 +40,24 @@
 // 3. If typeof is ’number’, convert the parameter to a string, reverse the characters, then convert it back into a number.
 // 4. Return the reversed number.
 // 5. Be sure to print the result returned by the function to verify that your code works for both strings and numbers. Do this before moving on to the next exercise.
+function reverseCharacters(element2) {
+    //JM: checks if it is a number. if so it converts it to a string then split,reverse, join back together Then converts it back to a number using "Number"
+    if (typeof element2 === "number"){
+        return Number(String(element2).split("").reverse().join(""));
+    } else {
+        // JM: if it is not a number it splits, reverses then joins it back together.
+        return element2.split("").reverse().join("");
+    }
+}
+
+console.log("-------------------PART 2------------------");
+console.log(reverseCharacters(num1));
+console.log(reverseCharacters(num2));
+console.log(reverseCharacters(str5));
+//----------------------------------------------
 
 // Part Three: Complete Reversal
+// Samples for Testing
 
 // 1. Define and initialize an empty array.
 // 2. Loop through the old array.
@@ -25,11 +65,23 @@
 // 4. Add the reversed string (or number) to the array defined in part ‘a’.
 // 5. Return the final, reversed array.
 // 6. Be sure to print the results from each test case in order to verify your code.
-
-let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
-let arrayTest2 = [123, 8897, 42, 1168, 8675309];
-let arrayTest3 = ['hello', 'world', 123, 'orange'];
-
+function reverseArr (arr){
+//1.
+    let newArray = [];
+//2.
+    for (let i = 0; i < arr.length; i++ ){
+//3.
+        newArray.push(reverseCharacters(arr[i]));
+    }
+//4.
+    let reverseArr = newArray.reverse();
+//5.
+    return reverseArr;
+}
+//6.
+console.log("-------------------PART 3------------------");
+console.log(reverseArr(arrayTest1));
+console.log(reverseArr(arrayTest2));
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
