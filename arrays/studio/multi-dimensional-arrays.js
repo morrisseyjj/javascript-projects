@@ -17,7 +17,7 @@ cargoHold.push(foodArray,equipmentArray,petsArray,sleepAidsArray);
 console.log(cargoHold);
 
 //3) Query the user to select a cabinet (0 - 3) in the cargoHold.
-let theChosenCabinet = input.question("Choose a cabinet number 0 to 3.");
+let theChosenCabinet = input.question("Choose a cabinet number 0 to 3:  ");
 
 //4) Use bracket notation and a template literal to display the contents of the selected cabinet. If the user entered an invalid number, print an error message.
 if (theChosenCabinet > cargoHold.length - 1 || theChosenCabinet < 0) {
@@ -25,4 +25,16 @@ if (theChosenCabinet > cargoHold.length - 1 || theChosenCabinet < 0) {
 } else {
 console.log(`The contents of the chosen cabinet ${theChosenCabinet} are ${cargoHold[theChosenCabinet].join(", ")}`);
 }
+
 //5) Modify the code to query the user for BOTH a cabinet in cargoHold AND a particular item. Use the 'includes' method to check if the cabinet contains the selected item, then print “Cabinet ____ DOES/DOES NOT contain ____.”
+let chosenItem = input.question("Choose an item. ")
+
+let doesDoesNot;
+
+if (cargoHold[theChosenCabinet].includes(chosenItem)) {
+    doesDoesNot = "DOES";
+} else {
+    doesDoesNot = "DOES NOT";
+}
+
+console.log(`The Cabinet ${doesDoesNot} contain ${chosenItem}. `);
