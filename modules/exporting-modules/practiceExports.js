@@ -1,3 +1,12 @@
+//module.exports = isPalindrome;
+module.exports = {
+    isPalindrome: isPalindrome,
+    evenOrOdd: evenOrOdd,
+    randomArrayElement: randomArrayElement
+}
+
+
+
 function isPalindrome(str){
     return str === str.split('').reverse().join('');
 }
