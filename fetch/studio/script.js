@@ -31,11 +31,17 @@ window.addEventListener("load", function(){
     async function fetchAstronautData() {
         let responseFromApi = await fetch("https://handlers.education.launchcode.org/static/astronauts.json")
         let dataAstronaut = await responseFromApi.json();
-        // BONUS MISSION 1
+// BONUS MISSION 1
+        dataAstronaut.sort((a, b) => a.hoursInSpace - b.hoursInSpace);
+
+// BONUS MISSION 3
+        let astronautCount = document.getElementById("count");
+        astronautCount.innerHTML = `The amount of Astronauts on this page is ${dataAstronaut.length} `
+
 
         for(let i = 0; i < dataAstronaut.length; i++) {
             let astronaut = dataAstronaut[i];
-            //BONUS MISSION 2 Conditional (ternary) operator
+//BONUS MISSION 2 Conditional (ternary) operator
             let activeColor = astronaut.active ? "active" : "";
             container.innerHTML += `
             <div class="astronaut">
